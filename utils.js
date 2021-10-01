@@ -1,13 +1,25 @@
-// On push dans le tableau définit au début de la fonction affiche
 function tabNom(tableau, f) {
+    // On met les noms dans le tableau
     return tableau.push(f);
 }
-// selon w3cschool la méthode sort , s'occupe de trier les éléments "string" de manière alphabétique
-function triAlphabetique(tableau) {
+function tri(tableau) {
+    // tri les noms
     return tableau.sort();
+}
+// la fonction proprieteNom s'occupe juste de préciser qu'on cherche la propriété .name 
+function proprieteNom(obj, tableau) {
+
+    let nom = obj.name;
+
+    // nom dans tableau
+    tabNom(tableau, nom);
+    // tri des nom
+    tri(tableau);
+
+    return tableau;
 }
 
 module.exports = {
-    tabNom,
-    triAlphabetique,
+    //  Pas besoin d'exporter les autres car propriété nom se sert des autres
+    proprieteNom,
 }

@@ -40,44 +40,28 @@ TAB = JSON.stringify([
     { "name": "Jacobus Bernardus van Brussel", "sex": "m", "born": 1736, "died": 1809, "father": "Jan van Brussel", "mother": "Elisabeth Haverbeke" }
 ]);
 
-// PEOPLE C'EST UN TABLEAU QUI RASSEMBLE UN ENSEMBLE D OBJET
+// PEOPLE C'EST UN TABLEAU D OBJET
 PEOPLE = JSON.parse(TAB);
-// Appel l'autre fichier
-const { triAlphabetique, tabNom } = require('./utils');
 
-// Cette fonction  s'occupera de parcourir le tableau d'objet en appelant d'autre fonction 
+// Appel les fonctions
+const { proprieteNom } = require('./utils');
+
+// Parcourt le TAB qui est un tableau d'objet
 function affiche(tab) {
 
     //  déclare un tableau vide ou on y mettra les différents noms
     let tabNom = [];
 
-    //  crée une boucle qui lit toutes les propriétés de tab
+    //  crée une boucle qui lit toutes les propriétés de tab car c'est un tableau on doit lire a l'intérieur de celui -ci 
     for (let key in tab) {
 
-        // les propriétés de tab = index de tableau car tab est un tableau contenant des objets
-
-        // L'objet est donc dans les index de tab on met donc key qui va de valeur en valeur dans l'index
-
+        // key va énumérer toutes les propriété a l'intérieur de chaque objet
         let objet = tab[key];
-
-        // La fonction listeNom est la fonction "mère" pour la gestion des nom 
-
-        listeNom(objet, tabNom);
+        // Cette fonction prend les noms, les mets dans un tableau puis les ordonne alphabétiquement
+        proprieteNom(objet, tabNom);
     }
     console.log(tabNom);
 }
-// la fonction listeNom s'occupe juste de préciser qu'on cherche la propriété .name 
-function listeNom(obj, tableau) {
-
-    // déroule les nom 
-    let nom = obj.name;
-
-    // tabNom est une fonction qui s'occupe de mettre les nom dans un seul tableau
-    tabNom(tableau, nom);
-
-    triAlphabetique(tableau);
-}
 
 
-// la fonction affichenom s'occupe de print un tableau trier alphabétiquement
 affiche(PEOPLE);

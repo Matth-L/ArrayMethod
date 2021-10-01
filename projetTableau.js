@@ -87,4 +87,4 @@ function triAlphabétique(tableau) {
 }
 
 // la fonction affichenom s'occupe de print un tableau trier alphabétiquement
-affiche_nom(PEOPLE);
+affiche(PEOPLE);

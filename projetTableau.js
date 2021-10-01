@@ -42,6 +42,7 @@ TAB = JSON.stringify([
 
 // PEOPLE C'EST UN TABLEAU QUI RASSEMBLE UN ENSEMBLE D OBJET
 PEOPLE = JSON.parse(TAB);
+// Appel l'autre fichier
 const { triAlphabetique, tabNom } = require('./utils');
 
 // Cette fonction  s'occupera de parcourir le tableau d'objet en appelant d'autre fonction 

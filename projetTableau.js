@@ -42,6 +42,7 @@ TAB = JSON.stringify([
 
 // PEOPLE C'EST UN TABLEAU QUI RASSEMBLE UN ENSEMBLE D OBJET
 PEOPLE = JSON.parse(TAB);
+const { triAlphabetique, tabNom } = require('./utils');
 
 // Cette fonction  s'occupera de parcourir le tableau d'objet en appelant d'autre fonction 
 function affiche(tab) {
@@ -64,7 +65,6 @@ function affiche(tab) {
     }
     console.log(tabNom);
 }
-
 // la fonction listeNom s'occupe juste de préciser qu'on cherche la propriété .name 
 function listeNom(obj, tableau) {
 
@@ -74,17 +74,9 @@ function listeNom(obj, tableau) {
     // tabNom est une fonction qui s'occupe de mettre les nom dans un seul tableau
     tabNom(tableau, nom);
 
-    triAlphabétique(tableau);
+    triAlphabetique(tableau);
 }
 
-// On push dans le tableau définit au début de la fonction affiche
-function tabNom(tableau, f) {
-    return tableau.push(f);
-}
-// selon w3cschool la méthode sort , s'occupe de trier les éléments "string" de manière alphabétique
-function triAlphabétique(tableau) {
-    tableau.sort();
-}
 
 // la fonction affichenom s'occupe de print un tableau trier alphabétiquement
 affiche(PEOPLE);

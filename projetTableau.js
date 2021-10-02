@@ -64,6 +64,7 @@ function affiche(tab) {
         proprieteNom(objet, tabNom);
         proprieteAge(objet, tabAge);
     }
+
     console.log(tabNom);
     console.log(tabAge);
 }

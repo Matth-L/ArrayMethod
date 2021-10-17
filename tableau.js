@@ -42,18 +42,22 @@ TAB = JSON.stringify([
 
 PEOPLE = JSON.parse(TAB);
 
-const { attributAge, agePlusGrandQue, tabNom, sexChoose } = require('./utils.js');
+const { attributAge, agePlusGrandQue, tabNom, sexChoose, tabAge } = require('./utils.js');
 
+let tableauDeNom = tabNom(PEOPLE);
+// console.log(tableauDeNom); //fonctionne 
 
 let sexM = new Set(["m"]); // ensemble permettant d'avoir une trace 
 let sexF = new Set(["f"]);
 
 sexChoisi = PEOPLE.filter(sexChoose, sexM); // il suffit de changer le parametre a gauche
 
-console.log(sexChoisi);
+// console.log(sexChoisi); //fonctionne 
 
 attributAge(); // je ne l'ai pas mis dans agePlusGrandQue car on peut vouloir l'attribut age sans forcémenet une comparaison
 
+// console.log(PEOPLE.map(tabAge)); //fonctionne
+
 let tabPlusDe20Ans = agePlusGrandQue(PEOPLE, 20);
 let tabPlusDe20AnsNom = tabNom(tabPlusDe20Ans);
-// console.log(tabPlusDe20AnsNom);
+// console.log(tabPlusDe20AnsNom); fonctionne

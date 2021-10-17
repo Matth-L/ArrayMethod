@@ -48,7 +48,7 @@ const { attributAge, agePlusGrandQue, tabNom, sexChoose } = require('./utils.js'
 let sexM = new Set(["m"]); // ensemble permettant d'avoir une trace 
 let sexF = new Set(["f"]);
 
-sexChoisi = PEOPLE.filter(sexChoose, sexF);
+sexChoisi = PEOPLE.filter(sexChoose, sexM); // il suffit de changer le parametre a gauche
 
 console.log(sexChoisi);
 

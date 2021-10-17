@@ -50,7 +50,7 @@ let tableauDeNom = tabNom(PEOPLE);
 let sexM = new Set(["m"]); // ensemble permettant d'avoir une trace 
 let sexF = new Set(["f"]);
 
-sexChoisi = PEOPLE.filter(sexChoose, sexM); // il suffit de changer le parametre a gauche
+sexChoisi = PEOPLE.filter(sexChoose, sexM); // il suffit de changer le parametre a droite
 
 // console.log(sexChoisi); //fonctionne 
 

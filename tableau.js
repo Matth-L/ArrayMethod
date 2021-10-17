@@ -54,7 +54,7 @@ sexChoisi = PEOPLE.filter(sexChoose, sexM); // il suffit de changer le parametre
 
 // console.log(sexChoisi); //fonctionne 
 
-attributAge(); // je ne l'ai pas mis dans agePlusGrandQue car on peut vouloir l'attribut age sans forcémenet une comparaison
+attributAge(); //ajoute l'attribut age 
 
 // console.log(PEOPLE.map(tabAge)); //fonctionne
 

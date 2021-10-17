@@ -40,34 +40,15 @@ TAB = JSON.stringify([
     { "name": "Jacobus Bernardus van Brussel", "sex": "m", "born": 1736, "died": 1809, "father": "Jan van Brussel", "mother": "Elisabeth Haverbeke" }
 ]);
 
-// PEOPLE C'EST UN TABLEAU D OBJET
 PEOPLE = JSON.parse(TAB);
 
-// Appel les fonctions du fichier utils
-const { proprieteNom, proprieteAge } = require('./utils');
+const { sexChoose, attributAge, agePlusGrandQue, tabNom } = require('./utils.js');
 
-// Parcourt le TAB qui est un tableau d'objet
-function affiche(tab) {
+let tabFemme = sexChoose(PEOPLE, "f");
+let tabHomme = sexChoose(PEOPLE, "m");
+console.log(tabHomme);
+attributAge(); // je ne l'ai pas mis dans agePlusGrandQue car on peut vouloir l'attribut age sans forcémenet une comparaison
 
-    //  déclare un tableau vide ou on y mettra les différents noms
-    let tabNom = [];
-    let tabAge = []
-
-    //  crée une boucle qui lit toutes les propriétés de tab car c'est un tableau on doit lire a l'intérieur de celui -ci 
-    for (let key in tab) {
-        // key va énumérer toutes les propriété a l'intérieur de chaque objet
-        let objet = tab[key];
-        // Cette fonction prend les noms, les mets dans un tableau puis les ordonne alphabétiquement
-
-
-
-        proprieteNom(objet, tabNom);
-        proprieteAge(objet, tabAge);
-    }
-
-    console.log(tabNom);
-    console.log(tabAge);
-}
-
-
-affiche(PEOPLE);
+let tabPlusDe20Ans = agePlusGrandQue(PEOPLE, 20);
+let tabPlusDe20AnsNom = tabNom(tabPlusDe20Ans);
+console.log(tabPlusDe20AnsNom);

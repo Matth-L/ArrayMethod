@@ -1,37 +1,54 @@
-function tabVal(tableau, val) {
-    // On met les valeurs dans un tableau
-    return tableau.push(val);
-}
-function tri(tableau) {
-    // tri les noms
-    return tableau.sort();
-}
-// la fonction proprieteNom s'occupe juste de préciser qu'on cherche la propriété .name 
-function proprieteNom(obj, tableau) {
+// ------------------------------------------------- SECTION NOM SEXE-------------------------------------------------
 
-    let nom = obj.name;
+let nom = (obj) => {
+    return obj.name;
+};
+let tabNom = (tab) => { // rend un tableau avec uniquement les nom , ils sont triés dans l'ordre alphabétique
+    let newT = tab.map(nom);
+    newT.sort();
+    return newT;
+}
+// console.log(PEOPLE.map(nom)); //donne  un tableau contenant tous les noms
 
-    // nom dans tableau
-    tabVal(tableau, nom);
-    // tri des nom
-    tri(tableau);
+// ------------------------------------------------- SECTION CHOIX SEXE-------------------------------------------------
 
-    return tableau;
+let sexH = (obj) => { // fonction booléenne en fonction du sexe 
+    return (obj.sex == "m");
+};
+let sexF = (obj) => {// fonction booléenne en fonction du sexe 
+    return (obj.sex == "f");
+};
+
+function sexChoose(tab, genre) { // la fonction rend un tab avec le nom des sex demandé
+    let newTab = [];
+    if (genre == "m") {
+        newTab = tab.filter(sexH); //on filtre tous les objets il ne reste que les Hommes
+    }
+    else if (genre == "f") {
+        newTab = tab.filter(sexF);//pareil mais avec les femmes 
+    }
+    //si on s'arrete la on a un tableau d'objet contenant qu'un des 2 sexes
+    return tabNom(newTab);
 }
 
-let proprieteAge = (obj, tab) => {
-    tableauAgePersonne(obj, tab);
-    return tab;
+// ------------------------------------------------- SECTION AGE-------------------------------------------------
+let age = (obj) => {
+    let age = obj.died - obj.born;
+    return obj["age"] = age; //crée l'attribut age pour chaque objet 
+};
+
+let attributAge = () => { //crée l'attribut age grace au foreach pas besoin de tout parcourir 
+    PEOPLE.forEach(age);
 }
 
-function tableauAgePersonne(objet, tableau) {
-    // défini l'age de la personne
-    let age = objet.died - objet.born;
-    // Tableau affichant l'age de la persone 
-    tabVal(tableau, age);
-}
+let agePlusGrandQue = (tab, ageDemande) => { // on rentre le tableau et l'age 
+    let newT = tab.filter(obj => { return (obj.age > ageDemande) }); // filter va sur tous les et effectue un test pour filter le tab
+    return newT;
+};
+
 module.exports = {
-    //  Pas besoin d'exporter les autres car propriété nom se sert des autres
-    proprieteNom,
-    proprieteAge,
+    sexChoose,
+    attributAge,
+    agePlusGrandQue,
+    tabNom,
 }
